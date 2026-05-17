@@ -576,6 +576,10 @@ The pipeline automatically generates multiple technical artifacts.
 - execution reports;
 - logs.
 
+<img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/f9a07a68-67b5-4f78-be9b-15d602e5b3a4" />
+
+Figure X presents the artifact packaging stage of the automated documentation reconstruction pipeline. The image shows the generation and organization of the final output artifacts, including JSON analysis reports, generated technical documentation files, and compressed output packages. The logs demonstrate the successful creation and packaging of artifacts such as `README.md`, `ARCHITECTURE.md`, `API.md`, and execution reports before final persistence and delivery.
+
 These artifacts support:
 - onboarding;
 - maintenance;
