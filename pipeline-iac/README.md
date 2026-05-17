@@ -310,6 +310,10 @@ At this stage:
 - the job context is created;
 - the artifact is prepared for execution.
 
+<img width="945" height="460" alt="image" src="https://github.com/user-attachments/assets/638a422e-076c-4ec8-acf3-39de248f0a77" />
+
+Figure X presents the formalization stage of the execution job after the upload process is completed. The image shows the generated Job ID and the queued processing state, indicating that the Java project has been successfully transferred to the AWS infrastructure and is awaiting automated execution within the pipeline lifecycle.
+
 ---
 
 ## Insert image related to:
