@@ -250,6 +250,10 @@ Generated artifacts:
   - service contracts
 - `docs_generation_report.json`
 
+<img width="945" height="650" alt="image" src="https://github.com/user-attachments/assets/2f4c44ce-7d52-4def-8808-a45f7b109010" />
+
+Figure X presents an example of automatically generated API documentation produced by the DocsGenerator component. The image illustrates the reconstructed REST API documentation generated from the analyzed Java project, including endpoints, HTTP methods, request parameters, handlers, response structures, and operational descriptions. This artifact demonstrates the pipeline’s capability to synthesize high-level technical documentation from source-code analysis and contextual LLM generation.
+
 ---
 
 ## 4. Output Structure
