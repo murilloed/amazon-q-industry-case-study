@@ -439,6 +439,10 @@ Using the previously extracted metadata and generated JavaDocs, the DocsGenerato
 - API documentation;
 - execution reports.
 
+<img width="945" height="647" alt="image" src="https://github.com/user-attachments/assets/c49f26b9-340f-4aa5-a83b-e7291ce8b965" />
+
+Figure X presents an example of automatically generated API documentation produced by the DocsGenerator component.
+
 This stage enables documentation generation at multiple abstraction levels:
 - micro level (methods/classes);
 - macro level (architecture/system).
