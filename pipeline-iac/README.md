@@ -197,7 +197,7 @@ The upload interface allows users to submit real Java systems for automated anal
 
 <img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/5f036f98-3285-442c-b1a1-3dbad57dc15c" />
 
-Figure X presents the initial upload interface of the automated documentation reconstruction pipeline. Through this interface, users can submit real Java projects in ZIP format, initiating the execution lifecycle of the pipeline.
+The figure above illustrates the initial upload interface of the automated documentation reconstruction pipeline. Through this interface, users can submit real Java projects in ZIP format, thereby initiating the execution lifecycle of the pipeline.
 
 The upload process collects:
 - project name;
@@ -206,7 +206,7 @@ The upload process collects:
 
 <img width="945" height="493" alt="image" src="https://github.com/user-attachments/assets/bdb07c94-76fc-4d3e-a786-d1ee7d5b02a9" />
 
-Figure X presents the upload stage of the automated documentation reconstruction pipeline. The image illustrates the submission of a real Java project ZIP artifact during transfer to the AWS infrastructure.
+The figure above presents the upload stage of the automated documentation reconstruction pipeline. The image illustrates the submission of a real Java project ZIP artifact during transfer to the AWS infrastructure.
 
 At this stage:
 - no analysis is performed yet;
@@ -215,7 +215,7 @@ At this stage:
 
 <img width="945" height="460" alt="image" src="https://github.com/user-attachments/assets/638a422e-076c-4ec8-acf3-39de248f0a77" />
 
-Figure X presents the formalization stage of the execution job after the upload process is completed.
+The figure above presents the formalization stage of the execution job after the upload process is completed.
 
 ---
 
@@ -267,15 +267,15 @@ The generation process preserves:
 
 <img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/7c125466-8611-41df-9c19-2828c5a5025b" />
 
-Figure X presents the operational execution environment of the JavaDoc generation phase.
+The figure above presents the operational execution environment of the JavaDoc generation phase.
 
 <img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/527b4388-1e48-4b75-bdc6-22c76fca23f4" />
 
-Figure X presents the JavaDoc generation process applied to the model layer of the analyzed Java project.
+The figure above presents the JavaDoc generation process applied to the model layer of the analyzed Java project.
 
 <img width="945" height="506" alt="image" src="COLE_AQUI_O_LINK_DA_IMAGEM_DO_USERREPOSITORY" />
 
-Figure X presents an example of automatically generated JavaDocs injected directly into the analyzed Java source code.
+The figure above presents an example of automatically generated JavaDocs injected directly into the analyzed Java source code.
 
 The execution also produces `javadoc_report.json`, which records:
 - modified files;
@@ -304,15 +304,15 @@ Using the previously extracted metadata and generated JavaDocs, the DocsGenerato
 
 <img width="945" height="657" alt="image" src="https://github.com/user-attachments/assets/0afe5b55-f515-48ec-bfa3-f105c660d7f1" />
 
-Figure X presents an example of automatically generated README documentation produced by the DocsGenerator component.
+The figure above presents an example of automatically generated README documentation produced by the DocsGenerator component.
 
 <img width="945" height="650" alt="image" src="https://github.com/user-attachments/assets/2f4c44ce-7d52-4def-8808-a45f7b109010" />
 
-Figure X presents an example of automatically generated API documentation produced by the DocsGenerator component.
+The figure above presents an example of automatically generated API documentation produced by the DocsGenerator component.
 
 <img width="945" height="657" alt="image" src="https://github.com/user-attachments/assets/c49f26b9-340f-4aa5-a83b-e7291ce8b965" />
 
-Figure X presents an example of automatically generated architectural documentation produced by the DocsGenerator component.
+The figure above presents an example of automatically generated architectural documentation produced by the DocsGenerator component.
 
 This stage enables documentation generation at multiple abstraction levels:
 - micro level (methods/classes);
@@ -359,7 +359,7 @@ The pipeline execution is fully integrated with AWS infrastructure.
 
 <img width="945" height="405" alt="image" src="https://github.com/user-attachments/assets/1897808f-28e9-4e39-bf9e-0e806c7d14d5" />
 
-Figure X presents the AWS CodeBuild environment used to execute the automated documentation reconstruction pipeline.
+The figure above presents the AWS CodeBuild environment used to execute the automated documentation reconstruction pipeline.
 
 The operational flow includes:
 1. Upload to S3;
@@ -370,7 +370,7 @@ The operational flow includes:
 
 <img width="945" height="411" alt="image" src="https://github.com/user-attachments/assets/cee46cb3-d872-4586-a7e9-bd323efd18c5" />
 
-Figure X presents the active execution state of the automated documentation reconstruction pipeline within AWS CodeBuild.
+The figure above presents the active execution state of the automated documentation reconstruction pipeline within AWS CodeBuild.
 
 The execution process is monitored through:
 - logs;
@@ -380,7 +380,7 @@ The execution process is monitored through:
 
 <img width="945" height="416" alt="image" src="https://github.com/user-attachments/assets/1cd899a7-f698-41dc-aa64-055c8165fa9c" />
 
-Figure X presents the runtime execution logs of the automated documentation reconstruction pipeline inside AWS CodeBuild.
+The figure above presents the runtime execution logs of the automated documentation reconstruction pipeline inside AWS CodeBuild.
 
 The core execution command is:
 
@@ -392,7 +392,7 @@ This command initiates the complete automated documentation reconstruction proce
 
 <img width="945" height="463" alt="image" src="https://github.com/user-attachments/assets/ad62ec85-efef-4987-b073-9de6bb4e37f0" />
 
-Figure X presents the final execution stage of the automated documentation reconstruction pipeline inside AWS CodeBuild.
+FThe figure above presents the final execution stage of the automated documentation reconstruction pipeline inside AWS CodeBuild.
 
 ---
 
@@ -409,13 +409,13 @@ Users can:
 
 <img width="945" height="451" alt="image" src="https://github.com/user-attachments/assets/860867cc-a65c-478e-b424-94af80ba5884" />
 
-Figure X presents the monitoring interface of the automated documentation reconstruction pipeline.
+The figure above presents the monitoring interface of the automated documentation reconstruction pipeline.
 
 The monitoring layer avoids "black-box execution" scenarios and improves transparency during processing.
 
 <img width="945" height="496" alt="image" src="https://github.com/user-attachments/assets/87b1c85e-7962-47c8-98cd-7ada971e862b" />
 
-Figure X presents the real-time monitoring interface of the automated documentation reconstruction pipeline.
+The figure above presents the real-time monitoring interface of the automated documentation reconstruction pipeline.
 
 The system also exposes:
 - Build IDs;
@@ -425,11 +425,11 @@ The system also exposes:
 
 <img width="945" height="456" alt="image" src="https://github.com/user-attachments/assets/036f4618-38ea-442e-a29f-6083d71f3317" />
 
-Figure X presents the detailed execution status interface of the automated documentation reconstruction pipeline.
+The figure above presents the detailed execution status interface of the automated documentation reconstruction pipeline.
 
 <img width="945" height="631" alt="image" src="https://github.com/user-attachments/assets/ee75b644-4a17-4b19-ada0-5dc020c76319" />
 
-Figure X presents the expanded execution details view of the automated documentation reconstruction pipeline.
+The figure above presents the expanded execution details view of the automated documentation reconstruction pipeline.
 
 ---
 
@@ -453,7 +453,7 @@ The pipeline automatically generates multiple technical artifacts.
 
 <img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/f9a07a68-67b5-4f78-be9b-15d602e5b3a4" />
 
-Figure X presents the artifact packaging stage of the automated documentation reconstruction pipeline.
+The figure above presents the artifact packaging stage of the automated documentation reconstruction pipeline.
 
 These artifacts support:
 - onboarding;
@@ -464,11 +464,11 @@ These artifacts support:
 
 <img width="945" height="505" alt="image" src="https://github.com/user-attachments/assets/0420a361-3e1c-4ffc-a466-e0b6f1906d8a" />
 
-Figure X presents the final artifact delivery interface of the automated documentation reconstruction pipeline.
+The figure above presents the final artifact delivery interface of the automated documentation reconstruction pipeline.
 
 <img width="945" height="653" alt="image" src="https://github.com/user-attachments/assets/782c92a5-6ee3-460c-8fb1-48fa2a26d93b" />
 
-Figure X presents the final completion stage of the automated documentation reconstruction pipeline.
+The figure above presents the final completion stage of the automated documentation reconstruction pipeline.
 
 ---
 
