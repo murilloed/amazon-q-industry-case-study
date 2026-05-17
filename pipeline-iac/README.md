@@ -514,6 +514,11 @@ The monitoring layer avoids "black-box execution" scenarios and improves transpa
 
 The monitoring layer avoids "black-box execution" scenarios and improves transparency during processing.
 
+<img width="945" height="496" alt="image" src="https://github.com/user-attachments/assets/87b1c85e-7962-47c8-98cd-7ada971e862b" />
+
+Figure X presents the real-time monitoring interface of the automated documentation reconstruction pipeline. The image shows an active processing job within the “All Jobs” dashboard, highlighting the execution lifecycle visibility provided by the system. Through the monitoring interface, users can observe execution states, track ongoing processing tasks, and access live execution monitoring features such as the “Watch” functionality.
+
+
 The system also exposes:
 - Build IDs;
 - input artifacts;
