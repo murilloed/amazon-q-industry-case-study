@@ -587,6 +587,10 @@ These artifacts support:
 - architectural understanding;
 - auditing.
 
+<img width="945" height="505" alt="image" src="https://github.com/user-attachments/assets/0420a361-3e1c-4ffc-a466-e0b6f1906d8a" />
+
+Figure X presents the final artifact delivery interface of the automated documentation reconstruction pipeline. The image shows completed execution jobs and the availability of generated documentation packages for download. Through this interface, users can access the final outputs produced by the pipeline, including generated documentation artifacts, execution reports, and reconstructed technical documentation packages.
+
 ---
 
 ## Insert image related to:
