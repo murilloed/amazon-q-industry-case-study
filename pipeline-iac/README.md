@@ -273,7 +273,8 @@ The figure above presents the operational execution environment of the JavaDoc g
 
 The figure above presents the JavaDoc generation process applied to the model layer of the analyzed Java project.
 
-<img width="945" height="506" alt="image" src="COLE_AQUI_O_LINK_DA_IMAGEM_DO_USERREPOSITORY" />
+<img width="1536" height="1024" alt="examples of automatically generated javaDocs and Execution Report" src="https://github.com/user-attachments/assets/fd3ab4cc-5b41-44b9-b244-0ac2bc5ab521" />
+
 
 The figure above presents an example of automatically generated JavaDocs injected directly into the analyzed Java source code.
 
