@@ -56,7 +56,7 @@ The pipeline was also designed to guarantee:
 
 ---
 
-## Insert image related to:
+## Automated Documentation Reconstruction Pipeline:
 
 <img width="1536" height="1024" alt="pipeline aws" src="https://github.com/user-attachments/assets/f5ed9816-8b10-447b-8138-65ac102c654d" />
 
@@ -64,7 +64,7 @@ The pipeline was also designed to guarantee:
 - General AWS architecture
 - Macro execution flow
 
-The figure below presents a high-level overview of the automated documentation reconstruction pipeline proposed in this research. The architecture integrates AWS cloud services, static source-code analysis techniques, and Large Language Models (LLMs) to automatically generate contextualized technical documentation for Java systems. The execution flow begins with the upload of a Java project through a web interface, followed by artifact storage in Amazon S3 and orchestration through AWS CodeBuild. During execution, the pipeline performs structural analysis using JavaParser and AST extraction mechanisms, generating metadata representations through the ManifestGenerator component. Subsequently, the JavadocInjector and DocsGenerator components invoke Amazon Bedrock and Amazon Q to synthesize JavaDocs, architectural documentation, API documentation, and auxiliary technical artifacts. Finally, the generated outputs are organized, persisted, and made available for monitoring and download, ensuring traceability, auditability, reproducibility, and support for software maintenance and architectural comprehension activities.
+The figure above presents a high-level overview of the automated documentation reconstruction pipeline proposed in this research. The architecture integrates AWS cloud services, static source-code analysis techniques, and Large Language Models (LLMs) to automatically generate contextualized technical documentation for Java systems. The execution flow begins with the upload of a Java project through a web interface, followed by artifact storage in Amazon S3 and orchestration through AWS CodeBuild. During execution, the pipeline performs structural analysis using JavaParser and AST extraction mechanisms, generating metadata representations through the ManifestGenerator component. Subsequently, the JavadocInjector and DocsGenerator components invoke Amazon Bedrock and Amazon Q to synthesize JavaDocs, architectural documentation, API documentation, and auxiliary technical artifacts. Finally, the generated outputs are organized, persisted, and made available for monitoring and download, ensuring traceability, auditability, reproducibility, and support for software maintenance and architectural comprehension activities.
 
 ---
 
@@ -97,10 +97,17 @@ The frontend does not execute heavy processing logic. Instead, it acts as an orc
 
 ---
 
-## Insert image related to:
+## Full AWS pipeline architecture:
 - Full AWS pipeline architecture
 - Component communication flow
 - Infrastructure overview
+
+<img width="1536" height="1024" alt="Full AWS pipeline architecture" src="https://github.com/user-attachments/assets/00bb4f58-74b8-41e7-a459-a108d9becb88" />
+
+
+The figure above presents the complete AWS-based architecture of the automated documentation reconstruction pipeline proposed in this research. The infrastructure integrates cloud-native orchestration services, static source-code analysis components, and Large Language Model (LLM) providers to enable the automated generation of contextualized technical documentation for Java systems. The execution flow starts with the upload of a Java project through a web interface, followed by storage and event triggering in Amazon S3. AWS CodeBuild orchestrates the execution lifecycle of the pipeline, coordinating multiple internal components responsible for structural analysis, metadata extraction, JavaDoc generation, architectural reconstruction, and high-level documentation synthesis. During execution, JavaParser performs AST-based source-code parsing, while the ManifestGenerator, JavadocInjector, and DocsGenerator components interact with Amazon Bedrock and Amazon Q to generate contextualized documentation artifacts. The resulting outputs are then organized into standardized structures and persisted in Amazon S3 for monitoring, auditing, download, and integration with external tools. The architecture also incorporates supporting services related to security, observability, traceability, and operational monitoring, including AWS IAM, KMS, CloudWatch, CloudTrail, and AWS X-Ray.
+
+
 
 ---
 
