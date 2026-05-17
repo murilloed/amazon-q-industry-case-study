@@ -473,6 +473,11 @@ The operational flow includes:
 4. LLM invocation through Bedrock;
 5. Artifact persistence in S3.
 
+<img width="945" height="411" alt="image" src="https://github.com/user-attachments/assets/cee46cb3-d872-4586-a7e9-bd323efd18c5" />
+
+Figure X presents the active execution state of the automated documentation reconstruction pipeline within AWS CodeBuild. The image illustrates the runtime orchestration of the build process, including execution status, build lifecycle monitoring, execution duration, and historical build tracking. This infrastructure is responsible for coordinating the cloud-native execution of the automated documentation generation workflow.
+
+
 The execution process is monitored through:
 - logs;
 - execution history;
