@@ -292,6 +292,10 @@ Contains:
 
 The upload interface allows users to submit real Java systems for automated analysis.
 
+<img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/5f036f98-3285-442c-b1a1-3dbad57dc15c" />
+
+Figure X presents the initial upload interface of the automated documentation reconstruction pipeline. Through this interface, users can submit real Java projects in ZIP format, initiating the execution lifecycle of the pipeline. The frontend acts as an orchestration layer, responsible for collecting project metadata, transferring artifacts to the AWS infrastructure, and formalizing the execution job.
+
 The upload process collects:
 - project name;
 - ZIP source-code package;
@@ -374,6 +378,10 @@ The execution also produces `javadoc_report.json`, which records:
 - LLM execution flow
 - Injected JavaDocs in source code
 
+<img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/7c125466-8611-41df-9c19-2828c5a5025b" />
+
+Figure X presents the operational execution environment of the JavaDoc generation phase. The image illustrates the interaction between the source-code structure, the internal execution flow of the pipeline, and the Java project being analyzed. The environment also demonstrates the integration between the documentation generation tool, the execution process, and the generated contextualized artifacts produced through the automated pipeline.
+
 ---
 
 # 6.4 Documentation Generation — DocsGenerator
@@ -440,6 +448,10 @@ This structure guarantees:
 # 7. AWS Infrastructure Execution
 
 The pipeline execution is fully integrated with AWS infrastructure.
+
+<img width="945" height="405" alt="image" src="https://github.com/user-attachments/assets/1897808f-28e9-4e39-bf9e-0e806c7d14d5" />
+
+Figure X presents the AWS CodeBuild environment used to execute the automated documentation reconstruction pipeline. The dashboard provides visibility into build history, execution status, duration, and operational monitoring of the pipeline. This infrastructure is responsible for orchestrating the execution lifecycle of the documentation generation process within the AWS cloud environment.
 
 The operational flow includes:
 1. Upload to S3;
