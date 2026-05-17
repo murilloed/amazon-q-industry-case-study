@@ -495,6 +495,10 @@ java -jar docgen-ai-tool.jar run
 
 This command initiates the complete automated documentation reconstruction process.
 
+<img width="945" height="463" alt="image" src="https://github.com/user-attachments/assets/ad62ec85-efef-4987-b073-9de6bb4e37f0" />
+
+Figure X presents the final execution stage of the automated documentation reconstruction pipeline inside AWS CodeBuild. The image illustrates the successful completion of the processing workflow, including artifact packaging, upload of generated outputs to Amazon S3, post-build execution stages, and final artifact persistence. The logs also demonstrate the successful termination of the pipeline lifecycle and the completion of the cloud-native orchestration process.
+
 ---
 
 ## Insert image related to:
