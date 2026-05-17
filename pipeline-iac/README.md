@@ -57,9 +57,14 @@ The pipeline was also designed to guarantee:
 ---
 
 ## Insert image related to:
+
+<img width="1536" height="1024" alt="pipeline aws" src="https://github.com/user-attachments/assets/f5ed9816-8b10-447b-8138-65ac102c654d" />
+
 - High-level pipeline overview
 - General AWS architecture
 - Macro execution flow
+
+The figure below presents a high-level overview of the automated documentation reconstruction pipeline proposed in this research. The architecture integrates AWS cloud services, static source-code analysis techniques, and Large Language Models (LLMs) to automatically generate contextualized technical documentation for Java systems. The execution flow begins with the upload of a Java project through a web interface, followed by artifact storage in Amazon S3 and orchestration through AWS CodeBuild. During execution, the pipeline performs structural analysis using JavaParser and AST extraction mechanisms, generating metadata representations through the ManifestGenerator component. Subsequently, the JavadocInjector and DocsGenerator components invoke Amazon Bedrock and Amazon Q to synthesize JavaDocs, architectural documentation, API documentation, and auxiliary technical artifacts. Finally, the generated outputs are organized, persisted, and made available for monitoring and download, ensuring traceability, auditability, reproducibility, and support for software maintenance and architectural comprehension activities.
 
 ---
 
