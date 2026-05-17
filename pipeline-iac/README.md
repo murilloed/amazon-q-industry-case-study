@@ -506,6 +506,12 @@ Users can:
 - access logs;
 - verify generated artifacts.
 
+<img width="945" height="451" alt="image" src="https://github.com/user-attachments/assets/860867cc-a65c-478e-b424-94af80ba5884" />
+
+Figure X presents the monitoring interface of the automated documentation reconstruction pipeline. The image shows the “All Jobs” dashboard, which provides visibility into completed executions, execution history, artifact download options, and operational monitoring of the generated documentation processes. The interface supports execution traceability and improves transparency throughout the pipeline lifecycle.
+
+The monitoring layer avoids "black-box execution" scenarios and improves transparency during processing.
+
 The monitoring layer avoids "black-box execution" scenarios and improves transparency during processing.
 
 The system also exposes:
