@@ -301,6 +301,10 @@ The upload process collects:
 - ZIP source-code package;
 - execution metadata.
 
+<img width="945" height="493" alt="image" src="https://github.com/user-attachments/assets/bdb07c94-76fc-4d3e-a786-d1ee7d5b02a9" />
+
+Figure X presents the upload stage of the automated documentation reconstruction pipeline. The image illustrates the submission of a real Java project ZIP artifact during transfer to the AWS infrastructure. At this stage, the execution job is being formalized and the uploaded source-code package is prepared for automated processing within the pipeline.
+
 At this stage:
 - no analysis is performed yet;
 - the job context is created;
