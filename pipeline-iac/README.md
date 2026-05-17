@@ -599,6 +599,10 @@ Figure X presents the final artifact delivery interface of the automated documen
 - Generated API documentation
 - Final reports
 
+<img width="945" height="653" alt="image" src="https://github.com/user-attachments/assets/782c92a5-6ee3-460c-8fb1-48fa2a26d93b" />
+
+Figure X presents the final artifact delivery interface of the automated documentation reconstruction pipeline. The image shows completed execution jobs and the availability of generated documentation packages for download.
+
 ---
 
 # 10. Technical Results
