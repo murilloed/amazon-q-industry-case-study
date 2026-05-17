@@ -1,4 +1,3 @@
-
 # Architecture, Construction and Implementation of the Automated Documentation Reconstruction Pipeline Based on LLMs
 
 ---
@@ -130,13 +129,6 @@ Special attention was given to:
 
 ---
 
-## Insert image related to:
-- Tool execution flow
-- Internal pipeline modules
-- Construction phases
-
----
-
 # 5. Technologies Used
 
 The pipeline integrates multiple technologies distributed across frontend, backend, orchestration, analysis, and AI generation layers.
@@ -191,114 +183,13 @@ The uploaded ZIP artifact is stored in Amazon S3 and associated with a unique Jo
 
 ---
 
-
-## # Tool Execution Flow
-
-## 1. Project Scanning (ManifestGenerator)
-
-- Walks through Java source files
-- Uses JavaParser to parse each `.java` file
-- Extracts class/method/constructor metadata
-- Generates `manifest.json` with project structure
-
----
-
-## 2. Javadoc Generation (JavadocInjector)
-
-- Reads `manifest.json`
-- For each class/method without JavaDoc:
-  - Calls Amazon Bedrock (`BedrockJavadocClient`)
-    - Sends code context + metadata
-    - Retry logic:
-      - 3 attempts with exponential backoff
-      - 1s → 2s → 3s
-    - Returns AI-generated JavaDoc
-  - Validates generated JavaDoc:
-    - parameters
-    - return types
-    - exceptions
-  - Injects using JavaParser's `LexicalPreservingPrinter`
-  - Falls back to deterministic placeholder on failure
-- Preserves original code formatting
-- Generates `javadoc_report.json`
-
----
-
-## 3. Documentation Generation (DocsGenerator)
-
-- Reads:
-  - `manifest.json`
-  - `javadoc_report.json`
-- Calls Amazon Bedrock (`BedrockDocsClient`)
-  - Sends project context + structure
-  - Retry logic:
-    - 3 attempts with exponential backoff
-  - Returns AI-generated documentation
-
-Generated artifacts:
-- `README.md`
-  - overview
-  - build instructions
-  - components
-- `ARCHITECTURE.md`
-  - system design
-  - data flow
-  - architectural layers
-- `API.md`
-  - endpoints
-  - interfaces
-  - service contracts
-- `docs_generation_report.json`
-
-<img width="945" height="650" alt="image" src="https://github.com/user-attachments/assets/2f4c44ce-7d52-4def-8808-a45f7b109010" />
-
-Figure X presents an example of automatically generated API documentation produced by the DocsGenerator component. The image illustrates the reconstructed REST API documentation generated from the analyzed Java project, including endpoints, HTTP methods, request parameters, handlers, response structures, and operational descriptions. This artifact demonstrates the pipeline’s capability to synthesize high-level technical documentation from source-code analysis and contextual LLM generation.
-
----
-
-## 4. Output Structure
-
-### `code/`
-Contains:
-- source code with injected JavaDocs
-
-### `analysis/`
-Contains:
-- JSON reports
-- `manifest.json`
-- `javadoc_report.json`
-- `docs_generation_report.json`
-
-### `docs/`
-Contains:
-- README documentation
-- architecture documentation
-- API documentation
-
----
-
-## Additional Pipeline Characteristics
-
-- Preserves original source-code formatting
-- Uses AST-based structural analysis
-- Avoids direct repository-wide LLM prompting
-- Maintains execution traceability
-- Supports reproducibility
-- Provides deterministic fallback handling
-- Supports auditability through JSON reports
-- Integrates cloud-native AWS execution
-- Uses contextualized LLM prompting
-- Generates both:
-  - micro-level documentation
-  - macro-level architectural documentation
-
 # 6.1 Initial Upload
 
 The upload interface allows users to submit real Java systems for automated analysis.
 
 <img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/5f036f98-3285-442c-b1a1-3dbad57dc15c" />
 
-Figure X presents the initial upload interface of the automated documentation reconstruction pipeline. Through this interface, users can submit real Java projects in ZIP format, initiating the execution lifecycle of the pipeline. The frontend acts as an orchestration layer, responsible for collecting project metadata, transferring artifacts to the AWS infrastructure, and formalizing the execution job.
+Figure X presents the initial upload interface of the automated documentation reconstruction pipeline. Through this interface, users can submit real Java projects in ZIP format, initiating the execution lifecycle of the pipeline.
 
 The upload process collects:
 - project name;
@@ -307,7 +198,7 @@ The upload process collects:
 
 <img width="945" height="493" alt="image" src="https://github.com/user-attachments/assets/bdb07c94-76fc-4d3e-a786-d1ee7d5b02a9" />
 
-Figure X presents the upload stage of the automated documentation reconstruction pipeline. The image illustrates the submission of a real Java project ZIP artifact during transfer to the AWS infrastructure. At this stage, the execution job is being formalized and the uploaded source-code package is prepared for automated processing within the pipeline.
+Figure X presents the upload stage of the automated documentation reconstruction pipeline. The image illustrates the submission of a real Java project ZIP artifact during transfer to the AWS infrastructure.
 
 At this stage:
 - no analysis is performed yet;
@@ -316,13 +207,7 @@ At this stage:
 
 <img width="945" height="460" alt="image" src="https://github.com/user-attachments/assets/638a422e-076c-4ec8-acf3-39de248f0a77" />
 
-Figure X presents the formalization stage of the execution job after the upload process is completed. The image shows the generated Job ID and the queued processing state, indicating that the Java project has been successfully transferred to the AWS infrastructure and is awaiting automated execution within the pipeline lifecycle.
-
----
-
-## Insert image related to:
-- Upload interface
-- Initial submission screen
+Figure X presents the formalization stage of the execution job after the upload process is completed.
 
 ---
 
@@ -376,43 +261,17 @@ The generation process preserves:
 - source-code structure;
 - syntactic consistency.
 
----
-
-## Insert image related to:
-- JavaDoc generation environment
-- Tool execution flow
-- Source-code analysis during execution
-
 <img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/7c125466-8611-41df-9c19-2828c5a5025b" />
 
-Figure X presents the operational execution environment of the JavaDoc generation phase. The image illustrates the interaction between the source-code structure, the internal execution flow of the pipeline, and the Java project being analyzed. The environment also demonstrates the integration between the documentation generation tool, the execution process, and the generated contextualized artifacts produced through the automated pipeline.
-
----
-
-## Insert image related to:
-- JavaDoc generation in model/entity layer
-- Multilayer documentation reconstruction
-- Source-code analysis across architectural layers
+Figure X presents the operational execution environment of the JavaDoc generation phase.
 
 <img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/527b4388-1e48-4b75-bdc6-22c76fca23f4" />
 
-Figure X presents the JavaDoc generation process applied to the model layer of the analyzed Java project. The image shows the `User.java` class being analyzed within the pipeline execution environment, demonstrating how the tool processes domain/model classes while preserving the original source-code structure and preparing contextualized documentation through the automated LLM-based workflow.
-
----
-
-## Insert image related to:
-- Injected JavaDocs
-- Generated source-code documentation
-- Reconstructed documentation artifacts
+Figure X presents the JavaDoc generation process applied to the model layer of the analyzed Java project.
 
 <img width="945" height="506" alt="image" src="COLE_AQUI_O_LINK_DA_IMAGEM_DO_USERREPOSITORY" />
 
-Figure X presents an example of automatically generated JavaDocs injected directly into the analyzed Java source code. The image illustrates the reconstructed technical documentation produced by the pipeline, including contextualized descriptions for repository operations, parameters, return values, and business logic behavior. The injection process preserves the original structure and formatting of the source code while enriching the system with AI-generated documentation artifacts.
-
----
-<img width="945" height="728" alt="image" src="https://github.com/user-attachments/assets/1de95de4-b69f-4df0-909a-8aeee00161b8" />
-
-Figure X presents the JavaDoc generation process applied to the model layer of the analyzed Java project. The image shows the `User.java` class being analyzed within the pipeline execution environment, demonstrating how the tool processes domain/model classes while preserving the original source-code structure and preparing contextualized documentation through the automated LLM-based workflow.
+Figure X presents an example of automatically generated JavaDocs injected directly into the analyzed Java source code.
 
 The execution also produces `javadoc_report.json`, which records:
 - modified files;
@@ -439,24 +298,21 @@ Using the previously extracted metadata and generated JavaDocs, the DocsGenerato
 - API documentation;
 - execution reports.
 
-<img width="945" height="647" alt="image" src="https://github.com/user-attachments/assets/c49f26b9-340f-4aa5-a83b-e7291ce8b965" />
+<img width="945" height="657" alt="image" src="https://github.com/user-attachments/assets/0afe5b55-f515-48ec-bfa3-f105c660d7f1" />
+
+Figure X presents an example of automatically generated README documentation produced by the DocsGenerator component.
+
+<img width="945" height="650" alt="image" src="https://github.com/user-attachments/assets/2f4c44ce-7d52-4def-8808-a45f7b109010" />
 
 Figure X presents an example of automatically generated API documentation produced by the DocsGenerator component.
+
+<img width="945" height="657" alt="image" src="https://github.com/user-attachments/assets/c49f26b9-340f-4aa5-a83b-e7291ce8b965" />
+
+Figure X presents an example of automatically generated architectural documentation produced by the DocsGenerator component.
 
 This stage enables documentation generation at multiple abstraction levels:
 - micro level (methods/classes);
 - macro level (architecture/system).
-
----
-
-<img width="945" height="657" alt="image" src="https://github.com/user-attachments/assets/0afe5b55-f515-48ec-bfa3-f105c660d7f1" />
-
-Figure X presents an example of automatically generated README documentation produced by the DocsGenerator component. The image illustrates the reconstructed high-level project overview generated from the analyzed Java application, including build instructions, project structure, package organization, application entry points, repositories, services, and endpoint summaries. This artifact demonstrates the pipeline’s capability to synthesize onboarding-oriented documentation directly from source-code analysis and contextual LLM generation.
-
-- Generated README
-- Architecture documentation
-- API documentation
-- Documentation synthesis flow
 
 ---
 
@@ -503,7 +359,7 @@ The pipeline execution is fully integrated with AWS infrastructure.
 
 <img width="945" height="405" alt="image" src="https://github.com/user-attachments/assets/1897808f-28e9-4e39-bf9e-0e806c7d14d5" />
 
-Figure X presents the AWS CodeBuild environment used to execute the automated documentation reconstruction pipeline. The dashboard provides visibility into build history, execution status, duration, and operational monitoring of the pipeline. This infrastructure is responsible for orchestrating the execution lifecycle of the documentation generation process within the AWS cloud environment.
+Figure X presents the AWS CodeBuild environment used to execute the automated documentation reconstruction pipeline.
 
 The operational flow includes:
 1. Upload to S3;
@@ -514,37 +370,29 @@ The operational flow includes:
 
 <img width="945" height="411" alt="image" src="https://github.com/user-attachments/assets/cee46cb3-d872-4586-a7e9-bd323efd18c5" />
 
-Figure X presents the active execution state of the automated documentation reconstruction pipeline within AWS CodeBuild. The image illustrates the runtime orchestration of the build process, including execution status, build lifecycle monitoring, execution duration, and historical build tracking. This infrastructure is responsible for coordinating the cloud-native execution of the automated documentation generation workflow.
-
+Figure X presents the active execution state of the automated documentation reconstruction pipeline within AWS CodeBuild.
 
 The execution process is monitored through:
 - logs;
 - execution history;
 - job states;
 - execution metadata.
-  
+
 <img width="945" height="416" alt="image" src="https://github.com/user-attachments/assets/1cd899a7-f698-41dc-aa64-055c8165fa9c" />
 
-Figure X presents the runtime execution logs of the automated documentation reconstruction pipeline inside AWS CodeBuild. The image exposes the internal operational lifecycle of the pipeline, including execution commands, environment parameters, source-code scanning, manifest generation, and JavaDoc injection stages. The logs provide detailed visibility into the orchestration and execution behavior of the cloud-native processing workflow.
-
+Figure X presents the runtime execution logs of the automated documentation reconstruction pipeline inside AWS CodeBuild.
 
 The core execution command is:
 
+```bash
 java -jar docgen-ai-tool.jar run
+```
 
 This command initiates the complete automated documentation reconstruction process.
 
 <img width="945" height="463" alt="image" src="https://github.com/user-attachments/assets/ad62ec85-efef-4987-b073-9de6bb4e37f0" />
 
-Figure X presents the final execution stage of the automated documentation reconstruction pipeline inside AWS CodeBuild. The image illustrates the successful completion of the processing workflow, including artifact packaging, upload of generated outputs to Amazon S3, post-build execution stages, and final artifact persistence. The logs also demonstrate the successful termination of the pipeline lifecycle and the completion of the cloud-native orchestration process.
-
----
-
-## Insert image related to:
-- AWS CodeBuild execution
-- Active pipeline execution
-- Build logs
-- Execution monitoring
+Figure X presents the final execution stage of the automated documentation reconstruction pipeline inside AWS CodeBuild.
 
 ---
 
@@ -561,16 +409,13 @@ Users can:
 
 <img width="945" height="451" alt="image" src="https://github.com/user-attachments/assets/860867cc-a65c-478e-b424-94af80ba5884" />
 
-Figure X presents the monitoring interface of the automated documentation reconstruction pipeline. The image shows the “All Jobs” dashboard, which provides visibility into completed executions, execution history, artifact download options, and operational monitoring of the generated documentation processes. The interface supports execution traceability and improves transparency throughout the pipeline lifecycle.
-
-The monitoring layer avoids "black-box execution" scenarios and improves transparency during processing.
+Figure X presents the monitoring interface of the automated documentation reconstruction pipeline.
 
 The monitoring layer avoids "black-box execution" scenarios and improves transparency during processing.
 
 <img width="945" height="496" alt="image" src="https://github.com/user-attachments/assets/87b1c85e-7962-47c8-98cd-7ada971e862b" />
 
-Figure X presents the real-time monitoring interface of the automated documentation reconstruction pipeline. The image shows an active processing job within the “All Jobs” dashboard, highlighting the execution lifecycle visibility provided by the system. Through the monitoring interface, users can observe execution states, track ongoing processing tasks, and access live execution monitoring features such as the “Watch” functionality.
-
+Figure X presents the real-time monitoring interface of the automated documentation reconstruction pipeline.
 
 The system also exposes:
 - Build IDs;
@@ -580,20 +425,11 @@ The system also exposes:
 
 <img width="945" height="456" alt="image" src="https://github.com/user-attachments/assets/036f4618-38ea-442e-a29f-6083d71f3317" />
 
-Figure X presents the detailed execution status interface of the automated documentation reconstruction pipeline. The image shows an active processing job, including execution status, Job ID, processing indicators, and access to detailed execution information. This interface improves operational traceability by exposing execution lifecycle information directly to users during pipeline processing.
+Figure X presents the detailed execution status interface of the automated documentation reconstruction pipeline.
 
 <img width="945" height="631" alt="image" src="https://github.com/user-attachments/assets/ee75b644-4a17-4b19-ada0-5dc020c76319" />
 
-Figure X presents the detailed execution status interface of the automated documentation reconstruction pipeline. The image shows an active processing job, including execution status, Job ID, processing indicators, and access to detailed execution information.
-
-
----
-
-## Insert image related to:
-- All Jobs screen
-- Job details screen
-- Watch execution screen
-- Execution progress
+Figure X presents the expanded execution details view of the automated documentation reconstruction pipeline.
 
 ---
 
@@ -617,7 +453,7 @@ The pipeline automatically generates multiple technical artifacts.
 
 <img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/f9a07a68-67b5-4f78-be9b-15d602e5b3a4" />
 
-Figure X presents the artifact packaging stage of the automated documentation reconstruction pipeline. The image shows the generation and organization of the final output artifacts, including JSON analysis reports, generated technical documentation files, and compressed output packages. The logs demonstrate the successful creation and packaging of artifacts such as `README.md`, `ARCHITECTURE.md`, `API.md`, and execution reports before final persistence and delivery.
+Figure X presents the artifact packaging stage of the automated documentation reconstruction pipeline.
 
 These artifacts support:
 - onboarding;
@@ -628,19 +464,11 @@ These artifacts support:
 
 <img width="945" height="505" alt="image" src="https://github.com/user-attachments/assets/0420a361-3e1c-4ffc-a466-e0b6f1906d8a" />
 
-Figure X presents the final artifact delivery interface of the automated documentation reconstruction pipeline. The image shows completed execution jobs and the availability of generated documentation packages for download. Through this interface, users can access the final outputs produced by the pipeline, including generated documentation artifacts, execution reports, and reconstructed technical documentation packages.
-
----
-
-## Insert image related to:
-- Generated JavaDocs
-- Generated architecture document
-- Generated API documentation
-- Final reports
+Figure X presents the final artifact delivery interface of the automated documentation reconstruction pipeline.
 
 <img width="945" height="653" alt="image" src="https://github.com/user-attachments/assets/782c92a5-6ee3-460c-8fb1-48fa2a26d93b" />
 
-Figure X presents the final artifact delivery interface of the automated documentation reconstruction pipeline. The image shows completed execution jobs and the availability of generated documentation packages for download.
+Figure X presents the final completion stage of the automated documentation reconstruction pipeline.
 
 ---
 
