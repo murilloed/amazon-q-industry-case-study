@@ -483,6 +483,11 @@ The execution process is monitored through:
 - execution history;
 - job states;
 - execution metadata.
+  
+<img width="945" height="416" alt="image" src="https://github.com/user-attachments/assets/1cd899a7-f698-41dc-aa64-055c8165fa9c" />
+
+Figure X presents the runtime execution logs of the automated documentation reconstruction pipeline inside AWS CodeBuild. The image exposes the internal operational lifecycle of the pipeline, including execution commands, environment parameters, source-code scanning, manifest generation, and JavaDoc injection stages. The logs provide detailed visibility into the orchestration and execution behavior of the cloud-native processing workflow.
+
 
 The core execution command is:
 
