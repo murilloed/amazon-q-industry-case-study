@@ -449,7 +449,10 @@ This stage enables documentation generation at multiple abstraction levels:
 
 ---
 
-## Insert image related to:
+<img width="945" height="657" alt="image" src="https://github.com/user-attachments/assets/0afe5b55-f515-48ec-bfa3-f105c660d7f1" />
+
+Figure X presents an example of automatically generated README documentation produced by the DocsGenerator component. The image illustrates the reconstructed high-level project overview generated from the analyzed Java application, including build instructions, project structure, package organization, application entry points, repositories, services, and endpoint summaries. This artifact demonstrates the pipeline’s capability to synthesize onboarding-oriented documentation directly from source-code analysis and contextual LLM generation.
+
 - Generated README
 - Architecture documentation
 - API documentation
