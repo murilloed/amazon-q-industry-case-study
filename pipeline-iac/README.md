@@ -192,263 +192,101 @@ The uploaded ZIP artifact is stored in Amazon S3 and associated with a unique Jo
 ---
 
 
-## Tool Execution Flow
+## # Tool Execution Flow
 
-The automated documentation reconstruction pipeline is organized into four major execution phases:
-1. Project Scanning
-2. JavaDoc Generation
-3. Documentation Generation
-4. Output Structuring
+## 1. Project Scanning (ManifestGenerator)
 
-Each phase is responsible for a specific set of operations within the overall execution lifecycle.
-
----
-
-### 1. Project Scanning (ManifestGenerator)
-
-Purpose:
-Understand the structural organization of the Java project before invoking the LLM.
-
-Main operations:
 - Walks through Java source files
-- Identifies relevant `.java` artifacts
-- Uses JavaParser to parse each Java file
-- Generates AST-based structural representations
-- Extracts metadata related to:
-  - classes
-  - methods
-  - constructors
-  - parameters
-  - return types
-  - package organization
-- Detects undocumented classes and methods
-- Generates `manifest.json` containing:
-  - project structure
-  - metadata references
-  - documentation coverage information
-
-Generated artifact:
-- `manifest.json`
-
-Purpose of the artifact:
-- Acts as a structural index of the system
-- Avoids sending the entire repository directly to the LLM
-- Enables reproducibility and traceability
-- Provides contextual grounding for generation
+- Uses JavaParser to parse each `.java` file
+- Extracts class/method/constructor metadata
+- Generates `manifest.json` with project structure
 
 ---
 
-## Insert image related to:
-- Project Scanning flow
-- JavaParser execution
-- manifest.json generation
-- AST extraction process
+## 2. Javadoc Generation (JavadocInjector)
+
+- Reads `manifest.json`
+- For each class/method without JavaDoc:
+  - Calls Amazon Bedrock (`BedrockJavadocClient`)
+    - Sends code context + metadata
+    - Retry logic:
+      - 3 attempts with exponential backoff
+      - 1s → 2s → 3s
+    - Returns AI-generated JavaDoc
+  - Validates generated JavaDoc:
+    - parameters
+    - return types
+    - exceptions
+  - Injects using JavaParser's `LexicalPreservingPrinter`
+  - Falls back to deterministic placeholder on failure
+- Preserves original code formatting
+- Generates `javadoc_report.json`
 
 ---
 
-### 2. JavaDoc Generation (JavadocInjector)
+## 3. Documentation Generation (DocsGenerator)
 
-Purpose:
-Generate contextualized JavaDocs for undocumented classes and methods.
-
-Execution steps:
-1. Reads `manifest.json`
-2. Identifies undocumented elements
-3. Prepares contextual prompts
-4. Calls Amazon Bedrock through `BedrockJavadocClient`
-5. Sends:
-   - source-code fragments
-   - metadata
-   - structural context
-6. Invokes the LLM for JavaDoc generation
-
-LLM invocation behavior:
-- Retry logic:
-  - 3 attempts
-  - exponential backoff:
-    - 1 second
-    - 2 seconds
-    - 3 seconds
-- Handles transient failures
-- Improves execution robustness
-
-Generated content validation:
-- Validates generated JavaDocs against:
-  - parameters
-  - return types
-  - exceptions
-  - signatures
-- Prevents inconsistent documentation injection
-
-Injection strategy:
-- Uses JavaParser's `LexicalPreservingPrinter`
-- Preserves:
-  - formatting
-  - indentation
-  - original source-code organization
-- Avoids rewriting business logic
-
-Failure handling:
-- Falls back to deterministic placeholders on generation failure
-- Prevents pipeline interruption
+- Reads:
+  - `manifest.json`
+  - `javadoc_report.json`
+- Calls Amazon Bedrock (`BedrockDocsClient`)
+  - Sends project context + structure
+  - Retry logic:
+    - 3 attempts with exponential backoff
+  - Returns AI-generated documentation
 
 Generated artifacts:
-- Updated source code with injected JavaDocs
-- `javadoc_report.json`
-
-The generated report includes:
-- modified files
-- generated entries
-- failures
-- execution status
-- coverage information
-
----
-
-## Insert image related to:
-- JavaDoc generation flow
-- Bedrock invocation
-- Retry logic
-- Injected JavaDocs
-- Validation process
-
----
-
-### 3. Documentation Generation (DocsGenerator)
-
-Purpose:
-Generate high-level technical documentation from the analyzed project structure.
-
-Inputs:
-- `manifest.json`
-- `javadoc_report.json`
-
-Execution flow:
-1. Reads structural metadata
-2. Reads JavaDoc generation reports
-3. Calls Amazon Bedrock through `BedrockDocsClient`
-4. Sends:
-   - project context
-   - architectural structure
-   - generated documentation metadata
-
-LLM invocation behavior:
-- Retry logic:
-  - 3 attempts
-  - exponential backoff
-
-Generated outputs:
 - `README.md`
-  - project overview
+  - overview
   - build instructions
-  - component organization
+  - components
 - `ARCHITECTURE.md`
-  - architectural layers
   - system design
   - data flow
-  - component responsibilities
+  - architectural layers
 - `API.md`
   - endpoints
   - interfaces
-  - service descriptions
+  - service contracts
 - `docs_generation_report.json`
 
-Documentation levels:
-- Micro-level:
-  - classes
-  - methods
-- Macro-level:
-  - architecture
-  - APIs
-  - system overview
-
-Purpose of this phase:
-- Reconstruct organizational knowledge
-- Improve onboarding
-- Support maintenance
-- Improve architectural visibility
-
 ---
 
-## Insert image related to:
-- Documentation generation flow
-- README generation
-- Architecture generation
-- API generation
-- LLM documentation synthesis
+## 4. Output Structure
 
----
-
-### 4. Output Structure
-
-Purpose:
-Organize all generated artifacts into a structured and auditable output package.
-
-Generated structure:
-
-#### code/
+### `code/`
 Contains:
-- original source code
-- injected JavaDocs
-- preserved formatting
+- source code with injected JavaDocs
 
-#### docs/
+### `analysis/`
 Contains:
-- README.md
-- ARCHITECTURE.md
-- API.md
+- JSON reports
+- `manifest.json`
+- `javadoc_report.json`
+- `docs_generation_report.json`
 
-#### analysis/
+### `docs/`
 Contains:
-- manifest.json
-- javadoc_report.json
-- docs_generation_report.json
-- execution logs
-- analysis artifacts
-
-Purpose of the organization:
-- Separate operational artifacts
-- Improve traceability
-- Enable auditing
-- Support reproducibility
-- Facilitate experimental evaluation
-
-Final outputs:
-- Fully documented Java project
-- Technical documentation package
-- Structured analysis artifacts
+- README documentation
+- architecture documentation
+- API documentation
 
 ---
 
-## Insert image related to:
-- Output directory structure
-- Final generated artifacts
-- Structured output package
+## Additional Pipeline Characteristics
 
----
-
-### Operational Characteristics of the Pipeline
-
-The pipeline was designed to guarantee:
-- modular execution;
-- auditability;
-- reproducibility;
-- robustness;
-- preservation of source-code integrity;
-- contextualized LLM generation.
-
-Additional characteristics:
-- cloud-native execution;
-- AWS integration;
-- automated orchestration;
-- execution traceability;
-- deterministic fallback mechanisms;
-- contextual prompt generation.
-
-The architecture also supports future evolution toward:
-- multi-agent architectures;
-- CI/CD integration;
-- continuous documentation reconstruction workflows.
+- Preserves original source-code formatting
+- Uses AST-based structural analysis
+- Avoids direct repository-wide LLM prompting
+- Maintains execution traceability
+- Supports reproducibility
+- Provides deterministic fallback handling
+- Supports auditability through JSON reports
+- Integrates cloud-native AWS execution
+- Uses contextualized LLM prompting
+- Generates both:
+  - micro-level documentation
+  - macro-level architectural documentation
 
 # 6.1 Initial Upload
 
