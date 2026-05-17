@@ -364,6 +364,11 @@ The injection process preserves:
 - source-code structure;
 - syntactic consistency.
 
+<img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/527b4388-1e48-4b75-bdc6-22c76fca23f4" />
+
+Figure X presents the JavaDoc generation process applied to the model layer of the analyzed Java project. The image shows the `User.java` class being analyzed within the pipeline execution environment, demonstrating how the tool processes domain/model classes while preserving the original source-code structure and preparing contextualized documentation through the automated LLM-based workflow.
+
+
 The execution also produces `javadoc_report.json`, which records:
 - modified files;
 - generated documentation;
