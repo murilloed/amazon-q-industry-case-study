@@ -529,6 +529,11 @@ The system also exposes:
 
 Figure X presents the detailed execution status interface of the automated documentation reconstruction pipeline. The image shows an active processing job, including execution status, Job ID, processing indicators, and access to detailed execution information. This interface improves operational traceability by exposing execution lifecycle information directly to users during pipeline processing.
 
+<img width="945" height="631" alt="image" src="https://github.com/user-attachments/assets/ee75b644-4a17-4b19-ada0-5dc020c76319" />
+
+Figure X presents the detailed execution status interface of the automated documentation reconstruction pipeline. The image shows an active processing job, including execution status, Job ID, processing indicators, and access to detailed execution information.
+
+
 ---
 
 ## Insert image related to:
