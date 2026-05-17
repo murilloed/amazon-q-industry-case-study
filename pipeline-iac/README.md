@@ -525,6 +525,10 @@ The system also exposes:
 - timestamps;
 - execution states.
 
+<img width="945" height="456" alt="image" src="https://github.com/user-attachments/assets/036f4618-38ea-442e-a29f-6083d71f3317" />
+
+Figure X presents the detailed execution status interface of the automated documentation reconstruction pipeline. The image shows an active processing job, including execution status, Job ID, processing indicators, and access to detailed execution information. This interface improves operational traceability by exposing execution lifecycle information directly to users during pipeline processing.
+
 ---
 
 ## Insert image related to:
