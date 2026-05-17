@@ -367,15 +367,48 @@ The JavadocInjector component:
 6. validates generated outputs;
 7. injects documentation back into the original source code.
 
-The injection process preserves:
+The generation process preserves:
 - formatting;
 - source-code structure;
 - syntactic consistency.
+
+---
+
+## Insert image related to:
+- JavaDoc generation environment
+- Tool execution flow
+- Source-code analysis during execution
+
+<img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/7c125466-8611-41df-9c19-2828c5a5025b" />
+
+Figure X presents the operational execution environment of the JavaDoc generation phase. The image illustrates the interaction between the source-code structure, the internal execution flow of the pipeline, and the Java project being analyzed. The environment also demonstrates the integration between the documentation generation tool, the execution process, and the generated contextualized artifacts produced through the automated pipeline.
+
+---
+
+## Insert image related to:
+- JavaDoc generation in model/entity layer
+- Multilayer documentation reconstruction
+- Source-code analysis across architectural layers
 
 <img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/527b4388-1e48-4b75-bdc6-22c76fca23f4" />
 
 Figure X presents the JavaDoc generation process applied to the model layer of the analyzed Java project. The image shows the `User.java` class being analyzed within the pipeline execution environment, demonstrating how the tool processes domain/model classes while preserving the original source-code structure and preparing contextualized documentation through the automated LLM-based workflow.
 
+---
+
+## Insert image related to:
+- Injected JavaDocs
+- Generated source-code documentation
+- Reconstructed documentation artifacts
+
+<img width="945" height="506" alt="image" src="COLE_AQUI_O_LINK_DA_IMAGEM_DO_USERREPOSITORY" />
+
+Figure X presents an example of automatically generated JavaDocs injected directly into the analyzed Java source code. The image illustrates the reconstructed technical documentation produced by the pipeline, including contextualized descriptions for repository operations, parameters, return values, and business logic behavior. The injection process preserves the original structure and formatting of the source code while enriching the system with AI-generated documentation artifacts.
+
+---
+<img width="945" height="728" alt="image" src="https://github.com/user-attachments/assets/1de95de4-b69f-4df0-909a-8aeee00161b8" />
+
+Figure X presents the JavaDoc generation process applied to the model layer of the analyzed Java project. The image shows the `User.java` class being analyzed within the pipeline execution environment, demonstrating how the tool processes domain/model classes while preserving the original source-code structure and preparing contextualized documentation through the automated LLM-based workflow.
 
 The execution also produces `javadoc_report.json`, which records:
 - modified files;
@@ -383,17 +416,12 @@ The execution also produces `javadoc_report.json`, which records:
 - execution results;
 - possible failures.
 
----
-
-## Insert image related to:
-- JavaDoc generation process
-- Bedrock invocation
-- LLM execution flow
-- Injected JavaDocs in source code
-
-<img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/7c125466-8611-41df-9c19-2828c5a5025b" />
-
-Figure X presents the operational execution environment of the JavaDoc generation phase. The image illustrates the interaction between the source-code structure, the internal execution flow of the pipeline, and the Java project being analyzed. The environment also demonstrates the integration between the documentation generation tool, the execution process, and the generated contextualized artifacts produced through the automated pipeline.
+The generated report includes:
+- modified files;
+- generated entries;
+- failures;
+- execution status;
+- coverage information.
 
 ---
 
