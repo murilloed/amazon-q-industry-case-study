@@ -117,7 +117,7 @@ The construction of the pipeline involved the integration of static code analysi
 
 <img width="945" height="529" alt="image" src="https://github.com/user-attachments/assets/211e463b-43ae-4848-b78a-612a87a5309b" />
 
-Figure X presents the implementation environment of the proposed pipeline, including the project structure, execution flow, and generated documentation preview. The image illustrates the integration between the documentation generation tool, the execution workflow, and the generated technical artifacts produced through the automated pipeline.
+The figure above presents the implementation environment of the proposed pipeline, including the project structure, execution flow, and generated documentation preview. The image illustrates the integration between the documentation generation tool, the execution workflow, and the generated technical artifacts produced through the automated pipeline.
 
 The implementation was structured around four major operational phases:
 1. Project Scanning;
