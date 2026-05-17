@@ -177,10 +177,6 @@ These technologies were selected to provide:
 - modularity;
 - reproducibility;
 - AI-assisted generation capabilities.
-
----
-
-## Insert image related to:
 - Technology stack
 - AWS service interaction
 - Tool integration architecture
@@ -245,10 +241,6 @@ This artifact is essential because it:
 - avoids sending unnecessary repository information to the LLM;
 - enables reproducibility;
 - supports traceability.
-
----
-
-## Insert image related to:
 - Project scanning flow
 - AST generation
 - manifest.json generation
@@ -356,10 +348,6 @@ This structure guarantees:
 - auditability;
 - reproducibility;
 - experimental traceability.
-
----
-
-## Insert image related to:
 - Output directory structure
 - Final artifact organization
 
