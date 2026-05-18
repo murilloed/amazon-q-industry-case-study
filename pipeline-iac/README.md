@@ -275,8 +275,30 @@ The figure above presents the JavaDoc generation process applied to the model la
 
 <img width="1536" height="1024" alt="examples of automatically generated javaDocs and Execution Report" src="https://github.com/user-attachments/assets/fd3ab4cc-5b41-44b9-b244-0ac2bc5ab521" />
 
+The figure above presents an example of the automatic JavaDoc generation process and the execution report produced by the pipeline during the analysis of a Java system. On the left side, the source code enriched with automatically generated JavaDocs can be observed, including contextual descriptions for classes, methods, parameters, return values, and exceptions. This process is performed by the JavadocInjector component, which analyzes the elements identified in manifest.json, constructs contextual prompts, and reinserts the generated documentation directly into the source code while preserving its original structure.
 
-The figure above presents an example of automatically generated JavaDocs injected directly into the analyzed Java source code.
+On the right side, the image presents the javadoc_report.json file, responsible for recording the operational results of the pipeline execution. This report acts as a traceability and technical auditing mechanism, storing information about processed files, generated documentation entries, detected failures, and achieved coverage during execution.
+
+The numerical values displayed in the report are derived directly from the structural analysis performed by the pipeline. The field “modified_files: 5” indicates the number of Java files that received automatically generated JavaDocs. The field “entries_generated: 42” represents the total number of documented elements, including classes, methods, and attributes. The value “failures: 1” indicates that one of the analyzed elements could not be processed correctly during execution.
+
+The failure shown in the example (“Parsing error at line 42: unexpected token”) represents a typical scenario encountered in static source-code analysis pipelines. This type of error usually occurs when the parser encounters:
+
+incomplete source code;
+syntactic inconsistencies;
+missing dependencies;
+invalid characters;
+or code fragments incompatible with the grammar expected by the parsing engine.
+
+In this case, the component based on JavaParser was unable to correctly construct the Abstract Syntax Tree (AST) for the analyzed file, preventing the safe generation of documentation for that specific element. Nevertheless, the pipeline continues processing the remaining files normally while recording the inconsistency in the report for traceability and future analysis purposes.
+
+The coverage indicators presented in the report are calculated from the relationship between structurally identified elements and effectively documented elements. In the example shown:
+
+Classes: 11 documented out of 12 identified (91.7%);
+Methods: 42 documented out of 48 identified (87.5%);
+Overall Coverage: consolidated average of the generated documentation during execution (89.6%).
+
+These metrics enable a quantitative evaluation of the scope of the automatic documentation generation process, providing useful indicators for execution-quality monitoring, identification of documentation gaps, and assessment of the effectiveness of the pipeline in real-world software development environments.
+
 
 The execution also produces `javadoc_report.json`, which records:
 - modified files;
