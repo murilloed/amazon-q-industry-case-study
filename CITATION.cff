@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this replication package, please cite it using the metadata below."
+title: "Industrial Java Documentation Reconstruction: Replication Package"
+type: software
+authors:
+  - family-names: "Souza"
+    given-names: "Murillo Edson de Carvalho"
+repository-code: "https://github.com/murilloed/amazon-q-industry-case-study"
+license: MIT
+version: 0.1.0
+date-released: 2026-06-15
+keywords:
+  - source code summarization
+  - software documentation
+  - large language models
+  - Java
+  - software maintenance
+  - focus group
